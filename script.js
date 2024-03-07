@@ -1,42 +1,167 @@
-var planWorkday = [
-  { time: "9:00 AM", event: "" },
-  { time: "9:30 AM", event: "" },
-  { time: "10:00 AM", event: "" },
-  { time: "10:30 AM", event: "" },
-  { time: "11:00 AM", event: "" },
-  { time: "12:00 PM", event: "" },
-  { time: "12:30 PM", event: "" },
-  { time: "1:00 PM", event: "" },
-  { time: "1:30 PM", event: "" },
-  { time: "2:00 PM", event: "" },
-  { time: "2:30 PM", event: "" },
-  { time: "3:00 PM", event: "" },
-  { time: "3:30 PM", event: "" },
-  { time: "4:00 PM", event: "" },
-  { time: "4:30 PM", event: "" },
-  { time: "5:00 PM", event: "" },
+var planWeek = [
+  [
+    { time: "9:00 AM", event: "" },
+    { time: "9:30 AM", event: "" },
+    { time: "10:00 AM", event: "" },
+    { time: "10:30 AM", event: "" },
+    { time: "11:00 AM", event: "" },
+    { time: "12:00 PM", event: "" },
+    { time: "12:30 PM", event: "" },
+    { time: "1:00 PM", event: "" },
+    { time: "1:30 PM", event: "" },
+    { time: "2:00 PM", event: "" },
+    { time: "2:30 PM", event: "" },
+    { time: "3:00 PM", event: "" },
+    { time: "3:30 PM", event: "" },
+    { time: "4:00 PM", event: "" },
+    { time: "4:30 PM", event: "" },
+    { time: "5:00 PM", event: "" },
+  ],
+  [
+    { time: "9:00 AM", event: "" },
+    { time: "9:30 AM", event: "" },
+    { time: "10:00 AM", event: "" },
+    { time: "10:30 AM", event: "" },
+    { time: "11:00 AM", event: "" },
+    { time: "12:00 PM", event: "" },
+    { time: "12:30 PM", event: "" },
+    { time: "1:00 PM", event: "" },
+    { time: "1:30 PM", event: "" },
+    { time: "2:00 PM", event: "" },
+    { time: "2:30 PM", event: "" },
+    { time: "3:00 PM", event: "" },
+    { time: "3:30 PM", event: "" },
+    { time: "4:00 PM", event: "" },
+    { time: "4:30 PM", event: "" },
+    { time: "5:00 PM", event: "" },
+  ],
+  [
+    { time: "9:00 AM", event: "" },
+    { time: "9:30 AM", event: "" },
+    { time: "10:00 AM", event: "" },
+    { time: "10:30 AM", event: "" },
+    { time: "11:00 AM", event: "" },
+    { time: "12:00 PM", event: "" },
+    { time: "12:30 PM", event: "" },
+    { time: "1:00 PM", event: "" },
+    { time: "1:30 PM", event: "" },
+    { time: "2:00 PM", event: "" },
+    { time: "2:30 PM", event: "" },
+    { time: "3:00 PM", event: "" },
+    { time: "3:30 PM", event: "" },
+    { time: "4:00 PM", event: "" },
+    { time: "4:30 PM", event: "" },
+    { time: "5:00 PM", event: "" },
+  ],
+  [
+    { time: "9:00 AM", event: "" },
+    { time: "9:30 AM", event: "" },
+    { time: "10:00 AM", event: "" },
+    { time: "10:30 AM", event: "" },
+    { time: "11:00 AM", event: "" },
+    { time: "12:00 PM", event: "" },
+    { time: "12:30 PM", event: "" },
+    { time: "1:00 PM", event: "" },
+    { time: "1:30 PM", event: "" },
+    { time: "2:00 PM", event: "" },
+    { time: "2:30 PM", event: "" },
+    { time: "3:00 PM", event: "" },
+    { time: "3:30 PM", event: "" },
+    { time: "4:00 PM", event: "" },
+    { time: "4:30 PM", event: "" },
+    { time: "5:00 PM", event: "" },
+  ],
+  [
+    { time: "9:00 AM", event: "" },
+    { time: "9:30 AM", event: "" },
+    { time: "10:00 AM", event: "" },
+    { time: "10:30 AM", event: "" },
+    { time: "11:00 AM", event: "" },
+    { time: "12:00 PM", event: "" },
+    { time: "12:30 PM", event: "" },
+    { time: "1:00 PM", event: "" },
+    { time: "1:30 PM", event: "" },
+    { time: "2:00 PM", event: "" },
+    { time: "2:30 PM", event: "" },
+    { time: "3:00 PM", event: "" },
+    { time: "3:30 PM", event: "" },
+    { time: "4:00 PM", event: "" },
+    { time: "4:30 PM", event: "" },
+    { time: "5:00 PM", event: "" },
+  ],
+  [
+    { time: "9:00 AM", event: "" },
+    { time: "9:30 AM", event: "" },
+    { time: "10:00 AM", event: "" },
+    { time: "10:30 AM", event: "" },
+    { time: "11:00 AM", event: "" },
+    { time: "12:00 PM", event: "" },
+    { time: "12:30 PM", event: "" },
+    { time: "1:00 PM", event: "" },
+    { time: "1:30 PM", event: "" },
+    { time: "2:00 PM", event: "" },
+    { time: "2:30 PM", event: "" },
+    { time: "3:00 PM", event: "" },
+    { time: "3:30 PM", event: "" },
+    { time: "4:00 PM", event: "" },
+    { time: "4:30 PM", event: "" },
+    { time: "5:00 PM", event: "" },
+  ],
+  [
+    { time: "9:00 AM", event: "" },
+    { time: "9:30 AM", event: "" },
+    { time: "10:00 AM", event: "" },
+    { time: "10:30 AM", event: "" },
+    { time: "11:00 AM", event: "" },
+    { time: "12:00 PM", event: "" },
+    { time: "12:30 PM", event: "" },
+    { time: "1:00 PM", event: "" },
+    { time: "1:30 PM", event: "" },
+    { time: "2:00 PM", event: "" },
+    { time: "2:30 PM", event: "" },
+    { time: "3:00 PM", event: "" },
+    { time: "3:30 PM", event: "" },
+    { time: "4:00 PM", event: "" },
+    { time: "4:30 PM", event: "" },
+    { time: "5:00 PM", event: "" },
+  ],
+  
 ];
 
 var dayOffset = 0;
 
 function colorRow(time) {
-  var planNow = moment().startOf('hour'); // Get the start of the current hour
-  var planEntry = moment(time, "h:mm A");
+  var currentDate = moment().add(dayOffset, 'days').startOf('day'); // Get the start of the current day with offset
+  var planDate = moment(time, "h:mm A").startOf('day');
 
-  if (planEntry.isBefore(planNow)) {
-    return "past-light-purple";
-  } else if (planEntry.isSame(planNow, 'hour')) {
+  if (planDate.isBefore(currentDate)) {
+    return "past";
+  } else if (planDate.isSame(currentDate, 'day')) {
     return "present";
-  } else {
+  } else if (planDate.isAfter(currentDate)) {
     return "future";
   }
 }
 
 function updateColors() {
   $(".time-block").each(function(index, element) {
-    var timeLabel = planWorkday[index].time;
+    var timeLabel = planWeek[dayOffset][index].time;
     var blockColor = colorRow(timeLabel);
     $(element).removeClass("past present future").addClass(blockColor);
+
+    // Custom color for past blocks
+    if (blockColor === "past") {
+      $(element).addClass("past-color");
+    } else {
+      $(element).removeClass("past-color");
+    }
+
+    // Custom color for next future calendar dates
+    if (blockColor === "future") {
+      $(element).addClass("future-color");
+    } else {
+      $(element).removeClass("future-color");
+    }
   });
 }
 
@@ -45,7 +170,7 @@ function updateDay() {
 
   $(".container").empty();
 
-  planWorkday.forEach(function(timeBlock, index) {
+  planWeek[dayOffset].forEach(function(timeBlock, index) {
     var timeLabel = timeBlock.time;
     var blockColor = colorRow(timeLabel);
     var row =
@@ -60,17 +185,38 @@ function updateDay() {
   });
 
   $("#currentDay").text(currentDate.format("dddd, MMM Do YYYY"));
-  
+
   updateColors(); // Update colors after rendering the time blocks
 }
 
+$("#prev-btn").on("click", function() {
+  dayOffset--;
+  if (dayOffset < 0) {
+    dayOffset = planWeek.length - 1;
+  }
+  console.log("Prev button clicked. Day offset:", dayOffset);
+  updateDay();
+});
+
+$("#next-btn").on("click", function() {
+  dayOffset++;
+  if (dayOffset >= planWeek.length) {
+    dayOffset = 0;
+  }
+  console.log("Next button clicked. Day offset:", dayOffset);
+  updateDay();
+});
+
+
 // Load saved events on page load and update the UI
 window.onload = function() {
-  for (var i = 0; i < 15; i++) {
-    var eventId = 'event' + i;
-    var event = localStorage.getItem(eventId);
-    if (event !== null) {
-      planWorkday[i].event = event;
+  for (var i = 0; i < planWeek.length; i++) {
+    for (var j = 0; j < planWeek[i].length; j++) {
+      var eventId = 'event' + j;
+      var event = localStorage.getItem(eventId + '-' + i); // Use a unique identifier for each day
+      if (event !== null) {
+        planWeek[i][j].event = event;
+      }
     }
   }
   updateDay();
@@ -78,27 +224,31 @@ window.onload = function() {
 
 function saveEvent(id) {
   var event = document.getElementById('event' + id).value;
-  localStorage.setItem('event' + id, event);
-  planWorkday[id].event = event;
-  localStorage.setItem('workDay', JSON.stringify({ planWorkday, dayOffset }));
+  localStorage.setItem('event' + id + '-' + dayOffset, event); // Use a unique identifier for each day
+  planWeek[dayOffset][id].event = event;
 }
 
-$("#prev-btn").on("click", function() {
-  dayOffset--;
-  console.log("Prev button clicked. Day offset:", dayOffset);
-  updateDay();
-});
+// $("#prev-btn").on("click", function() {
+//   dayOffset--;
+//   if (dayOffset < 0) {
+//     dayOffset = planWeek.length - 1;
+//   }
+//   console.log("Prev button clicked. Day offset:", dayOffset);
+//   updateDay();
+// });
 
-$("#next-btn").on("click", function() {
-  dayOffset++;
-  console.log("Next button clicked. Day offset:", dayOffset);
-  updateDay();
-});
+// $("#next-btn").on("click", function() {
+//   dayOffset++;
+//   if (dayOffset >= planWeek.length) {
+//     dayOffset = 0;
+//   }
+//   console.log("Next button clicked. Day offset:", dayOffset);
+//   updateDay();
+// });
 
-$(".container").on("click", ".saveBtn", function() {
-  var index = $(this).data("index");
-  var event = $("#event" + index).val();
-  localStorage.setItem("event" + index, event);
+$(".container").on("input", "textarea", function() {
+  var index = $(this).attr('id').replace('event', '');
+  saveEvent(index);
 });
 
 // Update colors every minute
