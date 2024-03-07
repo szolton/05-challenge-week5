@@ -26,15 +26,18 @@ body {
   
   .row {
     border-top: 1px solid lightgray;
+    border-radius: 4px;
   }
   
   .hour {
-    background-color: #lightgray;
+    background-color: lightgray;
     color: #000000;
     border-top: 1px dashed navy;
+    border-radius: 4px;
+
   }
   
-  .past {
+  .past-light-purple {
     background-color: #A186A6;
     color: white;
   }
@@ -61,3 +64,7 @@ body {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
   }
+
+  h1 {
+    font-family: "Baskerville", serif;
+  }å
