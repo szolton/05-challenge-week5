@@ -1,48 +1,56 @@
-// Function to update the displayed date and time blocks
-function updateDay() {
-  var currentDate = moment().subtract(dayOffset, 'days'); // Calculate the date based on the offset
-  var planWorkday = [
-    { time: "9:00 AM", event: "" },
-    { time: "10:00 AM", event: "" },
-    { time: "11:00 AM", event: "" },
-    { time: "12:00 PM", event: "" },
-    { time: "1:00 PM", event: "" },
-    { time: "2:00 PM", event: "" },
-    { time: "3:00 PM", event: "" },
-    { time: "4:00 PM", event: "" },
-    { time: "5:00 PM", event: "" },
-  ];
+var planWorkday = [
+  { time: "9:00 AM", event: "" },
+  { time: "9:30 AM", event: "" },
+  { time: "10:00 AM", event: "" },
+  { time: "10:30 AM", event: "" },
+  { time: "11:00 AM", event: "" },
+  { time: "12:00 PM", event: "" },
+  { time: "12:30 PM", event: "" },
+  { time: "1:00 PM", event: "" },
+  { time: "1:30 PM", event: "" },
+  { time: "2:00 PM", event: "" },
+  { time: "2:30 PM", event: "" },
+  { time: "3:00 PM", event: "" },
+  { time: "3:30 PM", event: "" },
+  { time: "4:00 PM", event: "" },
+  { time: "4:30 PM", event: "" },
+  { time: "5:00 PM", event: "" },
+];
 
-  // Retrieve saved events from localStorage
-  var savedEvents = localStorage.getItem("workDay");
-  if (savedEvents) {
-    planWorkday = JSON.parse(savedEvents);
+var dayOffset = 0;
+
+// Load saved events on page load and update the UI
+window.onload = function() {
+  for (var i = 0; i < 15; i++) {
+    var eventId = 'event' + i;
+    var event = localStorage.getItem(eventId);
+    if (event !== null) {
+      planWorkday[i].event = event;
+    }
   }
+  updateDay();
+};
 
-  $(".container").empty(); // Clear the container before re-populating
+function updateDay() {
+  var currentDate = moment().add(dayOffset, 'days');
+
+  $(".container").empty();
 
   planWorkday.forEach(function(timeBlock, index) {
     var timeLabel = timeBlock.time;
     var blockColor = colorRow(timeLabel);
     var row =
-      `<div class="time-block" id="hour-${index}">
-        <div class="hour">${timeLabel}</div>
-        <textarea class="${blockColor}">${timeBlock.event}</textarea>
-        <button class="saveBtn">Save</button>
+      `<div class="row time-block ${blockColor}">
+        <div class="col-2 col-md-1 hour text-center py-3">${timeLabel}</div>
+        <textarea id="event${index}" class="col-8 col-md-10 description" rows="3">${timeBlock.event}</textarea>
+        <button class="btn saveBtn col-2 col-md-1" data-index="${index}" aria-label="save">
+          <i class="fas fa-save" aria-hidden="true"></i>
+        </button>
       </div>`;
     $(".container").append(row);
   });
 
-  // Update the displayed date
   $("#currentDay").text(currentDate.format("dddd, MMM Do YYYY"));
-
-  // Save textarea content to localStorage when save button is clicked
-  $(".saveBtn").on("click", function() {
-    var index = $(this).closest(".time-block").attr("id").split("-")[1];
-    var event = $(this).siblings("textarea").val();
-    planWorkday[index].event = event;
-    localStorage.setItem("workDay", JSON.stringify(planWorkday));
-  });
 }
 
 function colorRow(time) {
@@ -50,27 +58,37 @@ function colorRow(time) {
   var planEntry = moment(time, "h:mm A");
   if (planNow.isBefore(planEntry)) {
     return "future";
-  } else if (planNow.isAfter(planEntry)) {
+  } else if (planNow.isAfter(planEntry.endOf('hour'))) {
     return "past";
   } else {
     return "present";
   }
 }
 
-// Initial load of the current day
-var dayOffset = 0;
-updateDay();
 
-// Button click event to show the next day
+function saveEvent(id) {
+  var event = document.getElementById('event' + id).value;
+  localStorage.setItem('event' + id, event);
+  planWorkday[id].event = event;
+  localStorage.setItem('workDay', JSON.stringify({ planWorkday, dayOffset }));
+}
+
 $("#prev-btn").on("click", function() {
-  dayOffset++; // Increment the offset to go to the next day
-  console.log("Next button clicked. Day offset:", dayOffset);
-  updateDay(); // Update the displayed date and time blocks
+  dayOffset--;
+  console.log("Prev button clicked. Day offset:", dayOffset);
+  updateDay();
 });
 
-// Button click event to show the next day
 $("#next-btn").on("click", function() {
-  dayOffset--; // Decrement the offset to go to the next day
+  dayOffset++;
   console.log("Next button clicked. Day offset:", dayOffset);
-  updateDay(); // Update the displayed date and time blocks
+  updateDay();
 });
+
+$(".container").on("click", ".saveBtn", function() {
+  var index = $(this).data("index");
+  var event = $("#event" + index).val();
+  localStorage.setItem("event" + index, event);
+});
+
+updateDay();
