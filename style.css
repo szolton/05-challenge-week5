@@ -39,17 +39,17 @@ body {
   }
   
   .past {
-    background-color: #A186A6;
+    background-color: #F4BBA2;
     color: white;
   }
   
   .present {
-    background-color: #D2CCEF;
+    background-color: #C9BAD3;
     color: white;
   }
   
-  .time-block.future {
-    background-color: #8b6a9e !important;
+  .future {
+    background-color:#E2B5F7 !important;
     color: white;
   }
   
@@ -69,7 +69,7 @@ body {
   h1 {
     font-family: "Baskerville", serif;
   }
-
+/* 
   #prev-btn,
   #next-btn {
 
@@ -90,4 +90,4 @@ body {
   #prev-btn:hover,
 #next-btn:hover {
   background-color: #D2CCEF; /* Change background color on hover */
-}
+} */
