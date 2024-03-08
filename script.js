@@ -131,39 +131,42 @@ var planWeek = [
 var dayOffset = 0;
 
 function colorRow(time) {
-  var currentDate = moment().add(dayOffset, 'days').startOf('day'); // Get the start of the current day with offset
-  var planDate = moment(time, "h:mm A").startOf('day');
+  var planDate = moment(time, "h:mm A");
+  var currentDate = moment().startOf('hour');
 
   if (planDate.isBefore(currentDate)) {
     return "past";
-  } else if (planDate.isSame(currentDate, 'day')) {
+  } else if (planDate.isSame(currentDate, 'minute')) {
     return "present";
-  } else if (planDate.isAfter(currentDate)) {
+  } else {
     return "future";
   }
 }
 
+
+
 function updateColors() {
+  var currentDate = moment().add(dayOffset, 'days').startOf('day');
+
   $(".time-block").each(function(index, element) {
     var timeLabel = planWeek[dayOffset][index].time;
-    var blockColor = colorRow(timeLabel);
-    $(element).removeClass("past present future").addClass(blockColor);
+    var planDate = moment(timeLabel, "h:mm A").startOf('day');
 
-    // Custom color for past blocks
-    if (blockColor === "past") {
-      $(element).addClass("past-color");
+    var color = "";
+    if (planDate.isBefore(currentDate)) {
+      color = "past";
+    } else if (planDate.isSame(currentDate, 'day')) {
+      color = "present";
     } else {
-      $(element).removeClass("past-color");
+      color = "future";
     }
 
-    // Custom color for next future calendar dates
-    if (blockColor === "future") {
-      $(element).addClass("future-color");
-    } else {
-      $(element).removeClass("future-color");
-    }
+    console.log("Time: " + timeLabel + ", Color: " + color);
+    
+    $(element).removeClass("past present future").addClass(color);
   });
 }
+
 
 function updateDay() {
   var currentDate = moment().add(dayOffset, 'days');
@@ -186,8 +189,20 @@ function updateDay() {
 
   $("#currentDay").text(currentDate.format("dddd, MMM Do YYYY"));
 
+  // Update the timer
+  updateTimer();
+
   updateColors(); // Update colors after rendering the time blocks
 }
+
+function updateTimer() {
+  setInterval(function() {
+    var currentTime = moment();
+    var formattedTime = currentTime.format("h:mm:ss A");
+    $("#timer").text(formattedTime);
+  }, 1000); // Update every second
+}
+
 
 $("#prev-btn").on("click", function() {
   dayOffset--;
@@ -227,24 +242,6 @@ function saveEvent(id) {
   localStorage.setItem('event' + id + '-' + dayOffset, event); // Use a unique identifier for each day
   planWeek[dayOffset][id].event = event;
 }
-
-// $("#prev-btn").on("click", function() {
-//   dayOffset--;
-//   if (dayOffset < 0) {
-//     dayOffset = planWeek.length - 1;
-//   }
-//   console.log("Prev button clicked. Day offset:", dayOffset);
-//   updateDay();
-// });
-
-// $("#next-btn").on("click", function() {
-//   dayOffset++;
-//   if (dayOffset >= planWeek.length) {
-//     dayOffset = 0;
-//   }
-//   console.log("Next button clicked. Day offset:", dayOffset);
-//   updateDay();
-// });
 
 $(".container").on("input", "textarea", function() {
   var index = $(this).attr('id').replace('event', '');
