@@ -1,13 +1,17 @@
+/* applies some default styles to all the elements */
 * {
   background-color: lightgray;
   border-radius: 4px;
 }
+
+/* sets the body styles */
 body {
     font-family: 'FranklinGothic Medium', sans-serif;
     font-size: 16px;
     line-height: 1;
   }
   
+  /* style for the textareas */
   textarea {
     background: transparent;
     border: none;
@@ -17,19 +21,23 @@ body {
     padding: 10px;
   }
   
+  /* allows text to wrap in textareas */
   .description {
     white-space: pre-wrap;
   }
   
+  /* style for the time blocsk */
   .time-block {
     border-radius: 15px;
   }
   
+  /* style for the rows */
   .row {
     border-top: 1px solid white;
     border-radius: 4px;
   }
-  
+
+  /* style for the hour labels */
   .hour {
     background-color: lightgray;
     color: #000000;
@@ -38,21 +46,25 @@ body {
 
   }
   
+  /* style for the past time blocks */
   .past {
     background-color: #F4BBA2;
     color: white;
   }
   
+  /* style for the present time blocks */
   .present {
     background-color: #F4E1F3 !important;
     color: white;
   }
   
+  /* style for the future time blocks */
   .future {
     background-color:#E2B5F7 !important;
     color: white;
   }
   
+  /* style for the save buttons */
   .saveBtn {
     border-left: 1px solid black;
     border-top-right-radius: 15px;
@@ -61,33 +73,13 @@ body {
     color: white;
   }
   
+  /* hover effect for save icon buttons */
   .saveBtn i:hover {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
   }
 
+  /* style for the h1 headings */
   h1 {
     font-family: "Baskerville", serif;
   }
-/* 
-  #prev-btn,
-  #next-btn {
-
-    justify-content: space-between;
-    position: relative;
-
-    background-color: #65697F;
-    padding: 10px;
-    margin: 10px;
-    color: black;
-  }
-
-  #next-btn {
-    float: right;
-
-  }
-
-  #prev-btn:hover,
-#next-btn:hover {
-  background-color: #D2CCEF; /* Change background color on hover */
-/* } */
