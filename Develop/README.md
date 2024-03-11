@@ -26,6 +26,8 @@ I also added a cool feature where it automatically saves what you type out on th
 
 ![schedule-edits](./images/schedule_edits.png)
 
+Here is a cool feature of the colors changing times as the day goes on -- see how the 4:30PM time block is now light purple, and the 5:00PM time block is the darker purple, signaling for the future times.
+
 In conclusion, I set up the quiz to meet the challenge requirements and improved it. I:
 - opened the planner, the current date and time is displayed at the top of the page
 - you can scroll down, and see time blocks for that day during the business hours of 9-5
