@@ -1,5 +1,3 @@
-Sources: https://www.youtube.com/watch?v=YPU6gOctNvM&t=61s&ab_channel=Design2Day
-
 # **Third-Party API's Challenge: WorkDay Scheduler**
 
 The purpose of this project was to create a calender that functions during normal business hours. 
@@ -41,4 +39,4 @@ In conclusion, I set up the quiz to meet the challenge requirements and improved
 
 The hardest part was figuring out just how to get started and working with the local storage to get the text to keep showing up. I also had a lot of trouble getting the color timeblocks to change, but I figured it out by breaking messing with the ColorRow function.
 
-Please follow this link to the successful, full deployed video on GitHub: https://szolton.github.io/04-challenge-week4/
+Please follow this link to the successful, full deployed video on GitHub: https://szolton.github.io/05-challenge-week5/
