@@ -10,23 +10,23 @@ Sources: https://www.youtube.com/watch?v=m9OSBJaQTlM&ab_channel=PortEXE, https:/
 
 I followed the videos to create the Javascript, HTML, and CSS. Here are some screenshots of how my process worked. First, I grabbed colors I liked more and messed around with them for the past/present/future tabs. These were adjusted slightly as I went along to make something that was more clearly a past/future color, but still kept the colors pastel-themed.
 
-![color palette](./images/palette.png)
+![color palette](./Develop/images/palette.png)
 
 Next, I updated it to go include half-hour marks too, just to make for the most efficient schedule in case there were ever meetings scheduled on the half-hour mark. This move helps with accuracy during the work day. I also added a fature that added a clock to the page, and an element that shows the day of the week and date.
 
-![top page](./images/top.png)
+![top page](./Develop/images/top.png)
 
 Then, I updated the colors and got them to show past/present/future and update automatically as the day went on.
 
-![colors updating](./images/colors.png)
+![colors updating](./Develop/images/colors.png)
 
 I also added a cool feature where it automatically saves what you type out on the schedule, so you don't need to click the save button (though it still works, per the assignment requirements); this helps with efficiency and saving your progress as you go, in case the user accidentally closes out of the program before saving.
 
-![schedule-edits](./images/schedule_edits.png)
+![schedule-edits](./Develop/images/schedule_edits.png)
 
 Here is a cool feature of the colors changing times as the day goes on -- see how the 4:30PM time block is now light purple, and the 5:00PM time block is the darker purple, signaling for the future times.
 
-![colors changing](./images/colors%20changing%20times.png)
+![colors changing](./Develop/images/colors%20changing%20times.png)
 
 In conclusion, I set up the quiz to meet the challenge requirements and improved it. I:
 - opened the planner, the current date and time is displayed at the top of the page
