@@ -44,7 +44,7 @@ body {
   }
   
   .present {
-    background-color: #C9BAD3;
+    background-color: #F4E1F3 !important;
     color: white;
   }
   
@@ -90,4 +90,4 @@ body {
   #prev-btn:hover,
 #next-btn:hover {
   background-color: #D2CCEF; /* Change background color on hover */
-} */
+/* } */
